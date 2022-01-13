@@ -3,6 +3,8 @@ const app = express();
 
 const PORT = 3000;
 
+app.set('view engine', 'ejs');
+
 // middleware
 app.use(express.urlencoded({ extended: false }));
 
@@ -10,6 +12,10 @@ app.use(express.urlencoded({ extended: false }));
 const products = require('./products');
 
 // product index route
+app.get("/", function(req, res) {
+  res.send("This is working!!!!!!!!!!!")
+});
+
 app.get('/products', (req, res) => {
   res.send(products);
 });
