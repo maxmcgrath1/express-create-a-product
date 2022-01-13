@@ -20,6 +20,10 @@ app.get('/products', (req, res) => {
   res.send(products);
 });
 
+app.get("/products/new", function(req, res) {
+  res.render("create.ejs")
+});
+
 // product show route
 app.get('/products/:id', (req, res) => {
   res.send(products[req.params.id]);
