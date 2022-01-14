@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-
 const PORT = 3000;
 
 app.set('view engine', 'ejs');
@@ -17,7 +16,8 @@ app.get("/", function(req, res) {
 });
 
 app.get('/products', (req, res) => {
-  res.send(products);
+  const context = {products: products};
+  res.render('index.ejs', context);
 });
 
 app.get("/products/new", function(req, res) {
